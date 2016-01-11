@@ -6,7 +6,7 @@ class Translator
   end
 
   def translate
-    @parsed_seq = @rna.rna_seq.gsub!(/(.{3})/, '\1 ').strip!
+    @parsed_seq = @rna.rna_seq.gsub!(/(.{3})/, '\1 ')
     @parsed_seq.gsub!("AUG", "M")
     @parsed_seq.gsub!("AUC", "I")
     @parsed_seq.gsub!("AUU", "I")

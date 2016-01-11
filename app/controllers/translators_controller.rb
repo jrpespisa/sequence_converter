@@ -7,8 +7,12 @@ class TranslatorsController < ApplicationController
 
   def create
     unless params["dna_seq"].nil?
-      @translator = Translator.new(params["dna_seq"])
-      render :index
+      if params["dna_seq"].include?("^actg")
+
+      else
+        @translator = Translator.new(params["dna_seq"])
+        render :index
+      end
     end
   end
 end
