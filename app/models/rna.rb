@@ -6,6 +6,7 @@ class Rna
   end
 
   def transcribe
-    @rna_seq = @dna_seq.upcase!.tr("TAGC", "AUCG")
+    @dna_seq.delete!("^acgtACGT")
+    @rna_seq = @dna_seq.tr("tagcTAGC", "AUCGAUCG")
   end
 end
