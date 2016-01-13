@@ -18,4 +18,12 @@ feature "biologist visits index page" do
     expect(page).to have_content "UGUGUG"
     expect(page).to have_content "C V"
   end
+  scenario "biologist inputs dna sequence that is fewer than 3 characters in length" do
+    visit "/"
+    fill_in "dna_seq", with: "cc"
+    click_on "Generate"
+
+    expect(page).to have_content "Please make sure the sequence is at least 3 characters long."
+    expect(page).to_not have_content "GG"
+  end
 end
