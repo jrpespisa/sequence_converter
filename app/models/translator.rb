@@ -1,5 +1,5 @@
 class Translator
-  attr_reader :rna, :parsed_seq
+  attr_reader :rna, :parsed_seq, :parsed_arr
 
   def initialize(dna_seq = nil)
     @rna = Rna.new(dna_seq)

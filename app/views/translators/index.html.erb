@@ -8,7 +8,7 @@
 </form>
 
 <% unless params["dna_seq"].nil? %>
-  <p>RNA Sequence: <%= @translator.rna.transcribe %></p>
+  <p class="translator">RNA Sequence: <%= @translator.rna.transcribe %></p>
   <p><% @translator.translate %></p>
   <p>Protein Sequence: <%= @translator.parsed_seq %></p>
 <% end %>
