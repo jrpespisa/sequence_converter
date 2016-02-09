@@ -40,6 +40,7 @@ GEM
     arel (6.0.3)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bower-rails (0.10.0)
     builder (3.2.2)
     byebug (8.2.1)
     capybara (2.5.0)
@@ -174,6 +175,7 @@ PLATFORMS
 
 DEPENDENCIES
   angularjs-rails
+  bower-rails
   byebug
   capybara
   coffee-rails (~> 4.1.0)
