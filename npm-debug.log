@@ -6,7 +6,7 @@
 5 verbose stack Error: ENOENT, open '/Users/jrpespisa/Projects/converter_app/package.json'
 5 verbose stack     at Error (native)
 6 verbose cwd /Users/jrpespisa/Projects/converter_app
-7 error Darwin 15.2.0
+7 error Darwin 15.3.0
 8 error argv "node" "/usr/local/bin/npm" "start"
 9 error node v0.12.7
 10 error npm  v2.12.1
