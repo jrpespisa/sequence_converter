@@ -5,7 +5,7 @@ converterApp.controller("ConverterController", function($scope, $http) {
       inputSeq: $scope.dna_seq
     });
 
-    var input = "RNA Sequence: " + $('input[name=dna_seq]').val();
+    var input = $('input[name=dna_seq]').val();
 
     var config = {
       headers : {
