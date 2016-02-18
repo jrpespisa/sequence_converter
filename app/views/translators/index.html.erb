@@ -6,15 +6,10 @@
 
 <h1>Sequence Converter</h1>
 
-<form action="/translators" method="post">
-  <label for="translator">DNA Sequence</label>:
-  <input id="translator" name="dna_seq" required/><br />
+<div ng-controller="ConverterController">
+  <label>Sequence:
+    <input type="text" name="dna_seq" ng-model="dna_seq">
+    <button ng-click="SendData()">Submit</button>
+  </label>
 
-  <input type="submit" value="Generate"/>
-</form>
-
-<% unless params["dna_seq"].nil? %>
-  <p>RNA Sequence: <%= @translator.rna.transcribe %></p>
-  <p><% @translator.translate %></p>
-  <p>Protein Sequence: <%= @translator.parsed_seq %></p>
-<% end %>
+<div id="RNA"> {{ responseData }} </div>
