@@ -1,10 +1,12 @@
 var converterApp = angular.module("converterApp", []);
-converterApp.controller("ConverterController", function($scope, $http) {
+converterApp.controller("ConverterController", function($scope, $http, converter) {
   $scope.SendData = function() {
     var data = $.param({
       inputSeq: $scope.dna_seq
     });
 
+    var rnaMessage = "RNA Sequence: "
+    var aaMessage = "Amino Acid Sequence: "
     var input = $('input[name=dna_seq]').val();
 
     var config = {
@@ -15,13 +17,8 @@ converterApp.controller("ConverterController", function($scope, $http) {
 
     $http.post("/translators", data, config)
     .success(function (data, status, headers, config) {
-      $scope.responseData = input;
+      $scope.rnaSeq = rnaMessage + converter.getRNA(input);
+      $scope.aaSeq = aaMessage + converter.getAA(input)
     })
-    .error(function (data, status, header, config) {
-      $scope.ResponseDetails = "Data: " + data +
-      "<hr />status: " + status +
-      "<hr />headers: " + header +
-      "<hr />config: " + config;
-    });
   };
 });
