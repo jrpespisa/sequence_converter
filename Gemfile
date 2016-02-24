@@ -23,6 +23,8 @@ gem 'rspec-rails', '~> 3.0'
 
 gem 'capybara'
 
+gem 'poltergeist'
+
 gem 'angularjs-rails'
 
 gem 'bower-rails'
