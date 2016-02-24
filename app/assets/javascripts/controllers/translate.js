@@ -8,7 +8,7 @@ converterApp.controller("ConverterController", function($scope, $http, converter
 
       var rnaMessage = "RNA Sequence: "
       var aaMessage = "Amino Acid Sequence: "
-      var input = $('input[name=dna_seq]').val().toLowerCase();
+      var input = $('textarea[name=dna_seq]').val().toLowerCase();
 
       var config = {
         headers : {

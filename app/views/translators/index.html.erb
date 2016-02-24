@@ -1,13 +1,20 @@
-<h1 class="title">Sequence Converter</h1>
+<h1 class="title">Sequence Wave</h1>
 
+<p class="intro">
+  To analyze your DNA sequence, please type or copy and paste your sequence into
+  the space below. Hit "Submit" to perform the analysis.
+  Please note: Only valid dNTPs will be analyzed (a, c, t, g)
+</p>
 <div ng-controller="ConverterController">
-<form name="dnaForm"  ng-submit="SendData(dnaForm.$valid)" novalidate>
-  <p ng-show="dnaForm.dna_seq.$error.minlength">DNA sequence is too short. It must be 3 characters or greater.</p>
-  <label>DNA Sequence:
-    <input type="text" name="dna_seq" ng-model="dna_seq" ng-minlength="3" ng-required="true">
-    <button type="submit">Submit</button>
-  </label>
-</form>
+  <form class="data-form" name="dnaForm"  ng-submit="SendData(dnaForm.$valid)" novalidate>
+    <li class="error" ng-show="dnaForm.dna_seq.$error.minlength">DNA sequence is too short. It must be 3 characters or greater.</li>
+    <label>DNA Sequence:</label>
+    <textarea type="text" name="dna_seq" ng-model="dna_seq" ng-minlength="3" ng-required="true"></textarea>
+    <div class="b-wrapper"><button class="tiny button" type="submit">Submit</button></div>
+  </form>
+<div>
 
-<div id="rna"> {{ rnaSeq }} </div>
-<div id="amino-acid"> {{ aaSeq }} </div>
+<div class="r-wrapper">
+  <div class="raw-results" id="rna"> {{ rnaSeq }} </div>
+  <div class="raw-results" id="amino-acid"> {{ aaSeq }} </div>
+</div>
