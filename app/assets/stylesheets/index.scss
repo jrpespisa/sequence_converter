@@ -1,0 +1,29 @@
+@import "foundation_and_overrides";
+
+.title {
+  text-align: center;
+}
+
+.intro {
+  font-size: 11pt;
+  padding-bottom: 10px;
+}
+
+.data-form,
+.r-wrapper,
+.intro {
+  margin: auto;
+  max-width: 75%;
+  align-content: center;
+}
+
+.raw-results {
+  word-wrap: break-word;
+  padding: 10px 0;
+}
+
+.error {
+  list-style-type: none;
+  color: red;
+  font-size: 7pt;
+}

@@ -4,7 +4,7 @@ feature "biologist visits index page" do
   scenario "biologist sees the dna conversion form" do
     visit "/"
 
-    expect(page).to have_content "Sequence Converter"
+    expect(page).to have_content "Sequence Wave"
     expect(page).to have_content "DNA Sequence:"
   end
 
