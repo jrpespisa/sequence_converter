@@ -2,7 +2,7 @@ converterApp.factory('converter', function() {
   converter = {};
   var sequenceIterator = function(input, output, map) {
     for (var i = 0; i < input.length; i++) {
-      output.push( map[input[i]] || input[i])
+      output.push( map[input[i]])
     };
     return output;
   };

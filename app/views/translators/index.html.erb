@@ -7,10 +7,13 @@
 <h1>Sequence Converter</h1>
 
 <div ng-controller="ConverterController">
-  <label>Sequence:
-    <input type="text" name="dna_seq" ng-model="dna_seq">
-    <button ng-click="SendData()">Submit</button>
+<form name="dnaForm"  ng-submit="SendData(dnaForm.$valid)" novalidate>
+  <p ng-show="dnaForm.dna_seq.$error.minlength">DNA sequence is too short. It must be 3 characters or greater.</p>
+  <label>DNA Sequence:
+    <input type="text" name="dna_seq" ng-model="dna_seq" ng-minlength="3" ng-required="true">
+    <button type="submit">Submit</button>
   </label>
+</form>
 
 <div id="rna"> {{ rnaSeq }} </div>
 <div id="amino-acid"> {{ aaSeq }} </div>
