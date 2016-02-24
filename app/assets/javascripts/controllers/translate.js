@@ -1,5 +1,5 @@
 var converterApp = angular.module("converterApp", []);
-converterApp.controller("ConverterController", function($scope, $http, converter) {
+converterApp.controller("ConverterController", ['$scope', '$http', 'converter', function($scope, $http, converter) {
   $scope.SendData = function(isValid) {
     if (isValid) {
       var data = $.param({
@@ -25,4 +25,4 @@ converterApp.controller("ConverterController", function($scope, $http, converter
       alert('Please make sure the sequence is at least 3 characters long.')
     };
   };
-});
+}]);
