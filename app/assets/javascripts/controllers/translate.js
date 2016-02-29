@@ -1,5 +1,5 @@
 var converterApp = angular.module("converterApp", []);
-converterApp.controller("ConverterController", ['$scope', '$http', 'converter', function($scope, $http, converter) {
+converterApp.controller("ConverterController", ['$scope', '$http', 'converter', 'analyzer', function($scope, $http, converter, analyzer) {
   $scope.SendData = function(isValid) {
     if (isValid) {
       var data = $.param({
@@ -20,6 +20,8 @@ converterApp.controller("ConverterController", ['$scope', '$http', 'converter', 
       .success(function (data, status, headers, config) {
         $scope.rnaSeq = rnaMessage + converter.getRNA(input);
         $scope.aaSeq = aaMessage + converter.getAA(input)
+        $scope.dnaData = analyzer.dnaPercentages(input);
+        debugger;
       });
     } else {
       alert('Please make sure the sequence is at least 3 characters long.')
