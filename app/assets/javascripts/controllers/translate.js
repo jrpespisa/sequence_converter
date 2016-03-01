@@ -6,6 +6,13 @@ converterApp.controller("ConverterController", ['$scope', '$http', 'converter', 
         inputSeq: $scope.dna_seq
       });
 
+      var dataParser = function(data) {
+        for (var key in data) {
+          $('#dna-data').append("<li>" + key + " = " + data[key] + "%" + "</li>")
+        };
+      };
+
+      var dnaDataMessage = "DNA breakdown: "
       var rnaMessage = "RNA Sequence: "
       var aaMessage = "Amino Acid Sequence: "
       var input = $('textarea[name=dna_seq]').val().toLowerCase();
@@ -20,8 +27,7 @@ converterApp.controller("ConverterController", ['$scope', '$http', 'converter', 
       .success(function (data, status, headers, config) {
         $scope.rnaSeq = rnaMessage + converter.getRNA(input);
         $scope.aaSeq = aaMessage + converter.getAA(input)
-        $scope.dnaData = analyzer.run(input);
-        debugger;
+        $scope.dnaData = dataParser(analyzer.run(input));
       });
     } else {
       alert('Please make sure the sequence is at least 3 characters long.')
