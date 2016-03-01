@@ -10,14 +10,21 @@ converterApp.factory('analyzer', function() {
     return dnaCount;
   };
 
-  analyzer.dnaPercentages = function(input) {
+  var dnaPercentages = function(input) {
     var dnaPercentages = dnaCount(input);
     var dnaTotal = 0;
     for (var key in dnaPercentages) {
       dnaTotal += dnaPercentages[key];
     };
+    for (var key in dnaPercentages) {
+      dnaPercentages[key] = (dnaPercentages[key] / dnaTotal) * 100;
+    };
     return dnaPercentages;
   };
+
+  analyzer.run = function(input) {
+    return dnaPercentages(input);
+  }
 
   return analyzer;
 });

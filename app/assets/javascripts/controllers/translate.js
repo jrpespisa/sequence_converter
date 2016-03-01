@@ -20,7 +20,7 @@ converterApp.controller("ConverterController", ['$scope', '$http', 'converter', 
       .success(function (data, status, headers, config) {
         $scope.rnaSeq = rnaMessage + converter.getRNA(input);
         $scope.aaSeq = aaMessage + converter.getAA(input)
-        $scope.dnaData = analyzer.dnaPercentages(input);
+        $scope.dnaData = analyzer.run(input);
         debugger;
       });
     } else {
