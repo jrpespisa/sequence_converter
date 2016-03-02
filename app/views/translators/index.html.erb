@@ -10,7 +10,7 @@
     <li class="error" ng-show="dnaForm.dna_seq.$error.minlength">DNA sequence is too short. It must be 3 characters or greater.</li>
     <label>DNA Sequence:</label>
     <textarea type="text" name="dna_seq" ng-model="dna_seq" ng-minlength="3" ng-required="true"></textarea>
-    <div class="b-wrapper"><button class="tiny button" type="submit">Submit</button></div>
+    <div class="b-wrapper"><button class="tiny button" type="submit"> {{button}} </button></div>
   </form>
 <div>
 

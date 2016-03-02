@@ -1,5 +1,6 @@
 var converterApp = angular.module("converterApp", []);
 converterApp.controller("ConverterController", ['$scope', '$http', 'converter', 'analyzer', function($scope, $http, converter, analyzer) {
+  $scope.button = "Submit"
   $scope.SendData = function(isValid) {
     if (isValid) {
       var data = $.param({
@@ -19,6 +20,7 @@ converterApp.controller("ConverterController", ['$scope', '$http', 'converter', 
 
       $http.post("/translators", data, config)
       .success(function (data, status, headers, config) {
+        $scope.button = "Reset"
         $scope.rnaSeq = rnaMessage + converter.getRNA(input);
         $scope.aaSeq = aaMessage + converter.getAA(input)
         $scope.dnaMessage = dnaDataMessage
