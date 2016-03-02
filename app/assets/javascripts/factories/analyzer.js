@@ -22,8 +22,14 @@ converterApp.factory('analyzer', function() {
     return dnaPercentages;
   };
 
+  var dataParser = function(data) {
+    for (var key in data) {
+      $('#dna-data').append("<li>" + key + " = " + data[key] + "%" + "</li>")
+    };
+  };
+
   analyzer.run = function(input) {
-    return dnaPercentages(input);
+    return dataParser(dnaPercentages(input));
   }
 
   return analyzer;

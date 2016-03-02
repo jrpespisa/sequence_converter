@@ -55,4 +55,23 @@ feature "biologist visits index page" do
     expect(page).to_not have_content "RNA Sequence:"
     expect(page).to_not have_content "Amino Acid Sequence:"
   end
+
+  scenario "biologist sees DNA sequence nucleotide percentages", js: true do
+    visit "/"
+    fill_in "dna_seq", with: "aaccttgg"
+    click_on "Submit"
+
+    expect(page).to have_content "DNA breakdown:"
+    expect(page).to have_content "a = 25%"
+  end
+
+  scenario "biologist enters non-dNTP characters and they are ignored during analysis", js: true do
+    visit "/"
+    fill_in "dna_seq", with: "aaccttggffffffff"
+    click_on "Submit"
+
+    expect(page).to have_content "DNA breakdown"
+    expect(page).to have_content "a = 25%"
+    expect(page).to_not have_content "f = 50%"
+  end
 end
