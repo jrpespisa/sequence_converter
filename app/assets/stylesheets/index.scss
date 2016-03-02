@@ -18,8 +18,12 @@
 }
 
 .raw-results {
+  list-style-type: none;
   word-wrap: break-word;
   padding: 10px 0;
+  #dna-data {
+    display: inline-block; 
+  }
 }
 
 .error {

@@ -1,11 +1,12 @@
 var converterApp = angular.module("converterApp", []);
-converterApp.controller("ConverterController", ['$scope', '$http', 'converter', function($scope, $http, converter) {
+converterApp.controller("ConverterController", ['$scope', '$http', 'converter', 'analyzer', function($scope, $http, converter, analyzer) {
   $scope.SendData = function(isValid) {
     if (isValid) {
       var data = $.param({
         inputSeq: $scope.dna_seq
       });
 
+      var dnaDataMessage = "DNA breakdown: "
       var rnaMessage = "RNA Sequence: "
       var aaMessage = "Amino Acid Sequence: "
       var input = $('textarea[name=dna_seq]').val().toLowerCase();
@@ -20,6 +21,8 @@ converterApp.controller("ConverterController", ['$scope', '$http', 'converter', 
       .success(function (data, status, headers, config) {
         $scope.rnaSeq = rnaMessage + converter.getRNA(input);
         $scope.aaSeq = aaMessage + converter.getAA(input)
+        $scope.dnaMessage = dnaDataMessage
+        $scope.dnaData = analyzer.run(input);
       });
     } else {
       alert('Please make sure the sequence is at least 3 characters long.')
